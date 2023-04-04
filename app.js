@@ -1,7 +1,7 @@
 let arrData=[];
 
 if(sessionStorage.arrData != null){
-    arrData=JSON.parse(localStorage.arrData);
+    arrData=JSON.parse(sessionStorage.arrData);
   }
  
 let userName;
