@@ -1,0 +1,55 @@
+.WelcomeContainer h2,h3{
+    text-align: center;
+   }
+
+   .inputs{
+       display: flex;
+       align-items: center;
+       justify-content: center;
+   }
+
+   .inputs input{
+      margin-right: 0.5rem;
+   }
+   input ,select{
+   width: 20%;
+   height: 5%;
+   }
+   input:focus{
+       
+       transform: scale(1.1);
+       }
+
+   #subinput0{
+       width: 20%;
+       
+       margin: 1rem auto; 
+   }
+   #subinput0:hover{
+       letter-spacing:2px;   
+   }
+
+   form{
+       margin:0.5rem;
+       padding: 1rem;
+       border: 1px solid #050505;
+   }
+
+
+   @media (max-width: 1000px) {
+    .inputs{
+       flex-direction: column;
+    } 
+  
+
+    input{
+        width: 70%;
+        height: 10%;
+        margin-bottom: 5px;
+        }
+         input,select{
+        width: 71%;
+        height: 10%;
+        margin-bottom: 5px;
+        }
+    }
