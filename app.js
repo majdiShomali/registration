@@ -22,9 +22,10 @@ event.preventDefault();
   if( validateName() &&  validatePassword() && validateEmail() && validateNumber()){
 		arrData.push(userName);
 		localStorage.setItem('arrData',JSON.stringify(arrData) );
+		// DataCollected.reset(); 
   }
 
-  DataCollected.reset(); 
+ 
   
 });
 
