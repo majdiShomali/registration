@@ -1,6 +1,6 @@
 let arrData=[];
 
-if(localStorage.arrData != null){
+if(sessionStorage.arrData != null){
     arrData=JSON.parse(localStorage.arrData);
   }
  
@@ -21,7 +21,7 @@ event.preventDefault();
  
   if( validateName() &&  validatePassword() && validateEmail() && validateNumber()){
 		arrData.push(userName);
-		localStorage.setItem('arrData',JSON.stringify(arrData) );
+		sessionStorage.setItem('arrData',JSON.stringify(arrData) );
 		// DataCollected.reset(); 
   }
 
