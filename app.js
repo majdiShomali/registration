@@ -9,8 +9,36 @@ let userPassword;
 let userEmail;
 let userNumber;
 
+
+let DataCollected=document.getElementById("datasub");
+
+DataCollected.addEventListener("submit",function(event){
+event.preventDefault();
+
+  userName=event.target.username.value;
+  userPassword=event.target.userpassword.value;
+  userEmail=event.target.useremail.value;
+  userNumber=event.target.usernumber.value;
+ 
+
+  if( validateName() &&  validatePassword() && validateEmail() && validateNumber()){
+
+	
+		arrData.push(userName);
+		localStorage.setItem('arrData',JSON.stringify(arrData) );
+	
+	 
+
+  }
+ 
+
+//   DataCollected.reset(); 
+  
+});
+
+
 function validateName() {
-	let Name = document.forms["datasub"]["username"].value.toLowerCase();
+	let Name = userName.toLowerCase();
 	if (Name == "") {
 	  alert("Name must be filled out");
 	  return false;
@@ -18,13 +46,22 @@ function validateName() {
 	}else if(Name.includes(" ")){
 		alert("Name must be filled with no spaces");
 		return false;	
+	} else if(arrData.includes(userName)){
+
+		alert("Username already exists. welcome "+userName);
+		return false;
 	}
+	
+
+
+return true;
+
   }
 
 
   function validatePassword(){
 	let iChars = "!@#$%^&*()+=-[]\\\';,./{}|\":<>?";
-	let password = document.forms["datasub"]["userpassword"].value;
+	let password = userPassword;
 	if (password.length<8) {
 		alert ("The password length must be more than 8 characters");
 		return false;
@@ -35,11 +72,13 @@ function validateName() {
 		return false;
 			}
 		}
+		
+		return true;
 	}   
 
 	function validateEmail(){
 		let iChars = "!#$%^&*()+=-[]\\\';,/{}|\":<>?";
-		let Email = document.forms["datasub"]["useremail"].value.toLowerCase();
+		let Email = userEmail.toLowerCase();
 		 if(!Email.includes("@")  || !Email.includes(".com") ){
 			alert("Please enter a valid Email EX.. majdi@gamil.com");
 			return false;
@@ -50,12 +89,12 @@ function validateName() {
 			return false;
 				}
 			}
-	
+			return true;
 		}   
 
 		function validateNumber(){
 			let iChars = "!#$%^&*()+=-[]\\\';,/{}|\":<>?@.";
-			let Number = document.forms["datasub"]["usernumber"].value;
+			let Number = userNumber;
   
 			 if( !(Number.includes("07"))    || !(Number.length ==10)  ){
 				alert("Please enter a valid number ex. 0799855850");
@@ -68,43 +107,8 @@ function validateName() {
 				return false;
 					}
 				}
-		
+		return true;
 			}   
-
-
-let DataCollected=document.getElementById("datasub");
-
-DataCollected.addEventListener("submit",function(event){
-event.preventDefault();
-
-  userName=event.target.username.value;
-  userPassword=event.target.userpassword.value;
-  userEmail=event.target.useremail.value;
-  userNumber=event.target.usernumber.value;
-  validateName()
-  validatePassword()
-  validateEmail()
-  validateNumber()
-  if(arrData.includes(userName)){
-
-	alert("Username already exists. welcome "+userName);
-  }else{
-	arrData.push(userName);
-	localStorage.setItem('arrData',JSON.stringify(arrData) );
-
-  }
-
-
-
-//   DataCollected.reset();
-
-
-  
-
-
-     
-  
-});
 
 
 
