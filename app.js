@@ -9,7 +9,6 @@ let userPassword;
 let userEmail;
 let userNumber;
 
-
 let DataCollected=document.getElementById("datasub");
 
 DataCollected.addEventListener("submit",function(event){
@@ -20,19 +19,12 @@ event.preventDefault();
   userEmail=event.target.useremail.value;
   userNumber=event.target.usernumber.value;
  
-
   if( validateName() &&  validatePassword() && validateEmail() && validateNumber()){
-
-	
 		arrData.push(userName);
 		localStorage.setItem('arrData',JSON.stringify(arrData) );
-	
-	 
-
   }
- 
 
-//   DataCollected.reset(); 
+  DataCollected.reset(); 
   
 });
 
@@ -52,8 +44,6 @@ function validateName() {
 		return false;
 	}
 	
-
-
 return true;
 
   }
@@ -71,8 +61,7 @@ return true;
 		alert ("The password has special characters. \nThese are not allowed.\n");
 		return false;
 			}
-		}
-		
+		}	
 		return true;
 	}   
 
