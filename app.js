@@ -29,7 +29,6 @@ event.preventDefault();
   
 });
 
-
 function validateName() {
 	let Name = userName.toLowerCase();
 	if (Name == "") {
@@ -48,21 +47,15 @@ function validateName() {
 return true;
 
   }
-
+  
 
   function validatePassword(){
-	let iChars = "!@#$%^&*()+=-[]\\\';,./{}|\":<>?";
 	let password = userPassword;
-	if (password.length<8) {
-		alert ("The password length must be more than 8 characters");
-		return false;
-			}
-	for (let i = 0; i < password.length; i++) {
-		if (iChars.indexOf(password.charAt(i)) != -1) {
-		alert ("The password has special characters. \nThese are not allowed.\n");
-		return false;
-			}
-		}	
+			const passwordRegex = /^(?=.*[0-9])(?=.*[!@#$%^&*])(?=.*[A-Z])[a-zA-Z0-9!@#$%^&*]{8,}$/;
+			if (!passwordRegex.test(password)) {
+				   alert("Password must contain at least 8 characters, 1 number, 1 uppercase letter, and 1 special character");
+				   return false;
+				 }
 		return true;
 	}   
 
@@ -73,6 +66,8 @@ return true;
 			alert("Please enter a valid Email EX.. majdi@gamil.com");
 			return false;
 		}
+
+		
 		for (let i = 0; i < Email.length; i++) {
 			if (iChars.indexOf(Email.charAt(i)) != -1) {
 			alert ("The Email has special characters. \nThese are not allowed.\n");
